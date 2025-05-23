@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    /* colors */
+    --primary-color: #fff;
+    --secondary-color: #000;
+    --tertiary-color: #F2F5F8;
+
+
+    /* fonts */
+    --font-size-xsmall: 14px;
+    --font-size-small: 16px;
+    --font-size-base: 18px;
+    --font-size-medium: 22px;
+    --font-size-large: 26px;
+    --font-size-xl: 42px;
+
+    @media (max-width: 991px) {
+        --font-size-xsmall: 12px;
+        --font-size-small: 14px;
+        --font-size-base: 16px;
+        --font-size-medium: 18px;
+        --font-size-large: 20px;
+        --font-size-xl: 24px;
+    }
+
+    @media (max-width: 767px) {
+        --font-size-xsmall: 10px;
+        --font-size-small: 12px;
+        --font-size-base: 14px;
+        --font-size-medium: 16px;
+        --font-size-large: 18px;
+        --font-size-xl: 20px;
+    }
+
+    /* Small phones (≤ 480px) */
+    @media (max-width: 480px) {
+        --font-size-xsmall: 8px;
+        --font-size-small: 10px;
+        --font-size-base: 12px;
+        --font-size-medium: 14px;
+        --font-size-large: 16px;
+        --font-size-xl: 18px;
+    }
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    width: 100%;
+    position: absolute;
+    padding: 30px 5px;
+    background: hsla(0, 0%, 0%, 0.097);
+
+    .header-left .logo {
+        width: 140px;
+    }
+
+    li {
+        list-style: none;
+
+        a {
+            color: var(--tertiary-color);
+            text-decoration: none;
+            font-size: var(--font-size-small);
+            font-weight: var(--font-weight-semibold);
+        }
+    }
+
+    .header-right .header-icon {
+        color: var(--tertiary-color);
+
+        i,
+        span {
+            margin: 0 10px;
+        }
+    }
+}
+
+.hero {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/hero-img.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
