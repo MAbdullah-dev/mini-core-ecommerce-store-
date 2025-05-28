@@ -15,6 +15,8 @@ body {
     --primary-color: #fff;
     --secondary-color: #000;
     --tertiary-color: #F2F5F8;
+    --quaternary-color: #919293;
+    --quinary-color: #333;
 
 
     /* fonts */
@@ -144,6 +146,7 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     .inner {
         min-height: 90vh;
@@ -188,24 +191,165 @@ header {
     }
 
     .card-1 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/women-fashion-free-img.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/women-fashion-free-img.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
 
     .card-2 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/men-fashion-free-img.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/men-fashion-free-img.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
 
     .card-3 {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("images/footwear-free-img.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/footwear-free-img.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
 
+}
+
+.featured-products h2 {
+    color: var(--secondary-color);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 50px;
+}
+
+.featured-products .product-cards {
+    gap: 20px;
+
+    .product-card {
+        min-height: 405px;
+        width: calc(20% - 16px);
+        border: 0;
+
+        .card-img {
+            width: 248px;
+            position: relative;
+
+            img {
+                cursor: pointer;
+            }
+        }
+
+        .card-img::after {
+            content: "🛍️";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 16px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 5px;
+            opacity: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            z-index: 2;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .card-img:hover::after {
+            opacity: 1;
+        }
+
+        h3 {
+            font-size: var(--font-size-small);
+            color: var(--secondary-color);
+            font-weight: var(--font-weight-semibold);
+            margin: 10px 0;
+        }
+
+        &>span {
+            color: var(--quaternary-color);
+            font-size: var(--font-size-xsmall);
+            font-weight: var(--font-weight-regular);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--quinary-color);
+            font-size: var(--font-size-xsmall);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: 10px;
+
+            span {
+                color: var(--quaternary-color);
+                font-weight: var(--font-weight-bold);
+            }
+        }
+
+    }
+}
+
+.featured-products .product-cards .product-card:first-child .card-img::before {
+    content: "Sale!";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    z-index: 2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.Promotional-Banner {
+    padding: 80px 0;
+    color: var(--tertiary-color);
+    /* background-color: var(--tertiary-color); */
+
+    .banner-img {
+        min-height: 500px;
+        background-image: url("images/banner-03.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding: 20px 80px;
+
+        button {
+            width: max-content;
+        }
+
+        h4 {
+            font-size: var(--font-size-medium);
+            font-weight: var(--font-weight-semibold);
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: var(--font-size-small);
+            font-weight: var(--font-weight-regular);
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            max-width: 590px;
+        }
+
+        h2 {
+            font-size: var(--font-size-xl);
+        }
+    }
+}
+
+.company-quality {
+    .quality-logo {
+        width: 49px;
+    }
+
+    .quality-wrapper {
+        gap: 20px;
+
+        .quality {
+            width: calc(25% - 15px);
+        }
+    }
 }
