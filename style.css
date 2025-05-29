@@ -179,8 +179,7 @@ header {
 
     .card {
         min-height: 480px;
-        width: calc(33.33% - 30px);
-        margin: 10px;
+        width: calc(33.33% - 20px);
         padding: 20px;
         color: var(--primary-color);
         border: 0;
@@ -188,6 +187,7 @@ header {
         button {
             width: max-content;
         }
+
     }
 
     .card-1 {
@@ -195,6 +195,18 @@ header {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+    }
+
+    @media (max-width: 992px) {
+        .catalogue-cards .card {
+            width: calc(50% - 20px);
+        }
+    }
+
+    @media (max-width: 576px) {
+        .catalogue-cards .card {
+            width: 100%;
+        }
     }
 
     .card-2 {
@@ -229,7 +241,7 @@ header {
         border: 0;
 
         .card-img {
-            width: 248px;
+            width: 100%;
             position: relative;
 
             img {
@@ -286,6 +298,30 @@ header {
     }
 }
 
+@media (max-width: 1200px) {
+    .featured-products .product-cards .product-card {
+        width: calc(25% - 16px);
+    }
+}
+
+@media (max-width: 992px) {
+    .featured-products .product-cards .product-card {
+        width: calc(33.33% - 16px);
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-products .product-cards .product-card {
+        width: calc(50% - 16px);
+    }
+}
+
+@media (max-width: 576px) {
+    .featured-products .product-cards .product-card {
+        width: 100%;
+    }
+}
+
 .featured-products .product-cards .product-card:first-child .card-img::before {
     content: "Sale!";
     position: absolute;
@@ -304,7 +340,6 @@ header {
 .Promotional-Banner {
     padding: 80px 0;
     color: var(--tertiary-color);
-    /* background-color: var(--tertiary-color); */
 
     .banner-img {
         min-height: 500px;
@@ -350,6 +385,128 @@ header {
 
         .quality {
             width: calc(25% - 15px);
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .company-quality .quality-wrapper .quality {
+        width: calc(33.33% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .company-quality .quality-wrapper .quality {
+        width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 480px) {
+    .company-quality .quality-wrapper .quality {
+        width: 100%;
+    }
+}
+
+.sale-text {
+    border-top: 1px solid var(--quaternary-color);
+    border-bottom: 1px solid var(--quaternary-color);
+}
+
+.sale-text .inner {
+    padding: 40px 0;
+}
+
+.sale-text h2 {
+    color: var(--secondary-color);
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-semibold);
+}
+
+footer {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--quaternary-color);
+
+    p {
+        color: var(--secondary-color);
+        font-size: var(--font-size-medium);
+        font-weight: var(--font-weight-semibold);
+        margin: 25px 0;
+
+    }
+
+    .footer-logo {
+        width: 90px;
+    }
+
+    h3 {
+        font-size: var(--font-size-medium);
+        color: var(--secondary-color);
+        font-weight: var(--font-size-medium);
+        margin-bottom: 20px;
+    }
+
+    ul li {
+        list-style: none;
+        margin-bottom: 10px;
+
+        a {
+            color: var(--quinary-color);
+            font-size: var(--font-size-small);
+            font-weight: var(--font-weight-regular);
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #1F5E7D;
+            }
+        }
+    }
+
+    input {
+        background: var(--primary-color);
+        color: var(--secondary-colorcece);
+        /* border: 1px solid var(--quaternary-color); */
+        border: none;
+        outline: none;
+        padding: 12px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+        max-width: 239px;
+        width: 100%;
+        /* equal shadow all around */
+    }
+
+    .subscribe-btn {
+        color: var(--tertiary-color);
+        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-xsmall);
+        background-color: #0075BE;
+        padding: 12px 38px;
+        outline: none;
+        border: none;
+        transition: all 0.3s ease;
+    }
+}
+
+.copytight {
+    padding: 30px 0;
+
+    p {
+        margin: 0;
+    }
+
+    ul li {
+        list-style: none;
+        display: inline-block;
+        margin-right: 10px;
+
+        a {
+            color: var(--secondary-color);
+            font-size: var(--font-size-xsmall);
+            font-weight: var(--font-weight-regular);
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #1F5E7D;
+            }
         }
     }
 }
