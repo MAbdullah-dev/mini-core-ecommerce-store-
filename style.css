@@ -80,6 +80,9 @@ header {
     position: absolute;
     padding: 30px 5px;
     background: hsla(0, 0%, 0%, 0.097);
+    #cart-count{
+        left: 60%;
+    }
 
     .header-left .logo {
         width: 140px;
