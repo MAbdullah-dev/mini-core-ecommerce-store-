@@ -42,7 +42,7 @@
                         </ul>
                     </div>
                     <div class="header-icon d-flex align-items-center justify-content-center">
-                        <span id="total-price">$0.00</span>
+                        <span class="total-price">$0.00</span>
                         <div class="position-relative d-inline-block">
                             <i class="fa-solid fa-bag-shopping" type="button" data-bs-toggle="modal"
                                 data-bs-target="#addtocartmodal" onclick="showCartItems()"></i>
@@ -322,26 +322,43 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade" id="addtocartmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"> <!-- Wider modal -->
+    <div class="modal fade" id="addtocartmodal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
+                <!-- Modal Header -->
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Your Cart</h1>
+                    <h1 class="modal-title fs-4" id="cartModalLabel">Shopping Cart</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+
+                <!-- Modal Body -->
                 <div class="modal-body" style="max-height: 500px; overflow-y: auto;">
-                    <!-- Flex layout for products -->
-                    <div class="d-flex flex-wrap justify-content-start" id="cart-items">
-                        <!-- JS will inject cart-item cards here -->
+                    <div id="cart-items" class="d-flex flex-wrap gap-3 justify-content-start">
+                        <!-- JS will dynamically insert cart item cards here -->
+                    </div>
+                    <div id="empty-cart-message" class="text-center text-muted py-4" style="display: none;">
+                        Your cart is currently empty.
                     </div>
                 </div>
-                <div class="modal-footer justify-content-between">
-                    <span id="total-price" class="fw-bold">Total: $0.00</span>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                <!-- Modal Footer -->
+                <div class="modal-footer flex-column align-items-end">
+                    <div class="w-100 text-end">
+                        <p id="total-price" class="mb-1 fw-semibold total-price">Subtotal: $0.00</p>
+                        <p id="gst-amount" class="mb-1 text-muted">GST (10%): $0.00</p>
+                        <p id="final-total" class="mb-3 fw-bold text-success">Final Total: $0.00</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-primary" id="checkout-btn">Proceed to Checkout</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Continue
+                            Shopping</button>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

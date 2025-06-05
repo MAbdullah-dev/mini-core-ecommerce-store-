@@ -90,6 +90,7 @@ fetchProducts();
 const cart = [];
 function addToCart(product) {
     const existingProduct = cart.find(item => item.id === product.id);
+    const addquantity = document.getElementById('add-quantity');
     // const cardIcon = document.querySelectorAll('.card-icon');
     if (existingProduct) {
         existingProduct.quantity += 1;
@@ -98,15 +99,26 @@ function addToCart(product) {
         // cardIcon.add('added');
 
     }
+
     console.log('Cart:', cart);
-    const totalprice = document.getElementById('total-price');
+    const totalprice = document.querySelectorAll('.total-price');
+    const gstAmount = document.getElementById('gst-amount');
+    const gstValue = 0.18; // 18% GST
     const cartCount = document.getElementById('cart-count');
+    const finaltotal = document.getElementById('final-total');
     cartCount.textContent = cart.length;
     let total = 0;
     cart.forEach(item => {
         total += item.price * item.quantity;
+
     });
-    totalprice.textContent = `Total: $${total.toFixed(2)}`;
+    // gstAmount = total * gstValue;
+    // totalprice.textContent = `Total: $${total.toFixed(2)}`;
+    for (let i = 0; i < totalprice.length; i++) {
+        totalprice[i].textContent = `Total: $${total.toFixed(2)}`;
+        gstAmount.textContent = `GST (18%): $${(total * gstValue).toFixed(2)}`;
+        finaltotal.textContent = `Final Total: $${(total * (1 + gstValue)).toFixed(2)}`;
+    }
 }
 
 function showCartItems() {
@@ -124,9 +136,47 @@ function showCartItems() {
             <div class="card-body p-1 text-center">
                 <h6 class="card-title mb-1">${item.title}</h6>
                 <p class="card-text mb-1">$${item.price}</p>
-                <small>Qty: ${item.quantity}</small>
+                <i class="fa-solid fa-plus" id="add-quantity" data-id="${item.id}"></i><small>Qty: ${item.quantity}</small> <i class="fa-solid fa-minus subtract-quantity" data-id="${item.id}"></i>
+
             </div>
         `;
         cartItems.appendChild(cartItem);
+        const subtractquantity = document.querySelectorAll('.subtract-quantity');
+
+        for (let i = 0; i < subtractquantity.length; i++) {
+            subtractquantity[i].addEventListener('click', () => {
+                const productId = parseInt(subtractquantity[i].getAttribute('data-id'));
+                const existingProduct = cart.find(item => item.id === productId);
+                // console.log(existingProduct.quantity);
+
+                if (existingProduct) {
+                    if (existingProduct.quantity > 1) {
+                        existingProduct.quantity -= 1;
+                        console.log(`Quantity of ${existingProduct.title} decreased to ${existingProduct.quantity}`);
+
+                    } else {
+                        const index = cart.indexOf(existingProduct);
+                        cart.splice(index, 1);
+                    }
+                    addToCart(existingProduct);
+                    showCartItems();
+                }
+            });
+        }
     });
 }
+
+
+// for (i = 1; i <= 5; i++) {
+//     let result = '';
+//     for (j = 5; j > i; j++) {
+//         result = ' ' + result;
+//     }
+//     for (j = 1; j <= i; j++) {
+//         result = result + '*';
+//     }
+//     console.log(result);
+
+// }
+// console.log(result);
+
